@@ -57,8 +57,8 @@ macBookPro.fullInf
 macBookPro.quickLook()
 macBookPro.keyboard.choice()
 
-
-func performComparisonOperation(a: Int, b: String, operation: (Bool)){
+//MARK: Это неверное решение?
+func performOperation(a: Int, b: String, operation: (Bool)){
     if a == 3 {
         for i in 0..<a {
             sleep(1)
@@ -69,4 +69,14 @@ func performComparisonOperation(a: Int, b: String, operation: (Bool)){
     }
 }
 
-performComparisonOperation(a: 3, b: "result", operation: true)
+performOperation(a: 3, b: "result", operation: true)
+
+let actionBlock: (Int) -> Void = { value in
+    guard value >= 3 else { return print("Das ist kleine Zahl") }
+    for i in 0..<value {
+        sleep(1)
+        print("result: \(i)")
+    }
+}
+
+actionBlock(4)
